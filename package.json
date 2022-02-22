@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",
+    "predev": "npm run swagger",
+    "prebuild": "npm run swagger",
     "build": "tsc",
-    "dev": "nodemon",
+    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
+    "swagger": "tsoa spec",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
